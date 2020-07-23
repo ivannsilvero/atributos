@@ -29,26 +29,86 @@ class InstallData implements InstallDataInterface
 	{
 		$setup->startSetup();
 
-		// *******************
-		// ** Attribute Set **
-		// *******************
+		// ************************
+		// ** Attribute Set: AIO **
+		// ************************
 
-		// $categorySetup = $this->categorySetupFactory->create(['setup' => $setup]);
+		$categorySetup = $this->categorySetupFactory->create(['setup' => $setup]);
 
-		// $attributeSet = $this->attributeSetFactory->create();
-		// $entityTypeId = $categorySetup->getEntityTypeId(\Magento\Catalog\Model\Product::ENTITY);
-		// $attributeSetId = $categorySetup->getDefaultAttributeSetId($entityTypeId);
-		// $data = [
-		// 	'attribute_set_name' => 'PC Completa',
-		// 	'entity_type_id' => $entityTypeId,
-		// 	'sort_order' => 200,
-		// ];
-		// $attributeSet->setData($data);
-		// $attributeSet->validate();
-		// $attributeSet->save();
-		// $attributeSet->initFromSkeleton($attributeSetId);
-		// $attributeSet->save();
+		$attributeSet = $this->attributeSetFactory->create();
+		$entityTypeId = $categorySetup->getEntityTypeId(\Magento\Catalog\Model\Product::ENTITY);
+		$attributeSetId = $categorySetup->getDefaultAttributeSetId($entityTypeId);
+		$data = [
+			'attribute_set_name' => 'AIO',
+			'entity_type_id' => $entityTypeId,
+			'sort_order' => 200,
+		];
+		$attributeSet->setData($data);
+		$attributeSet->validate();
+		$attributeSet->save();
+		$attributeSet->initFromSkeleton($attributeSetId);
+		$attributeSet->save();
+		
+		// *****************************
+		// ** Attribute Set: Notebook **
+		// *****************************
 
+		$categorySetup = $this->categorySetupFactory->create(['setup' => $setup]);
+
+		$attributeSet = $this->attributeSetFactory->create();
+		$entityTypeId = $categorySetup->getEntityTypeId(\Magento\Catalog\Model\Product::ENTITY);
+		$attributeSetId = $categorySetup->getDefaultAttributeSetId($entityTypeId);
+		$data = [
+			'attribute_set_name' => 'Notebook',
+			'entity_type_id' => $entityTypeId,
+			'sort_order' => 200,
+		];
+		$attributeSet->setData($data);
+		$attributeSet->validate();
+		$attributeSet->save();
+		$attributeSet->initFromSkeleton($attributeSetId);
+		$attributeSet->save();
+
+		// ***********************
+		// ** Attribute Set: PC **
+		// ***********************
+		
+		$categorySetup = $this->categorySetupFactory->create(['setup' => $setup]);
+		
+		$attributeSet = $this->attributeSetFactory->create();
+		$entityTypeId = $categorySetup->getEntityTypeId(\Magento\Catalog\Model\Product::ENTITY);
+		$attributeSetId = $categorySetup->getDefaultAttributeSetId($entityTypeId);
+		$data = [
+			'attribute_set_name' => 'PC',
+			'entity_type_id' => $entityTypeId,
+			'sort_order' => 200,
+		];
+		$attributeSet->setData($data);
+		$attributeSet->validate();
+		$attributeSet->save();
+		$attributeSet->initFromSkeleton($attributeSetId);
+		$attributeSet->save();
+
+		// ********************************
+		// ** Attribute Set: PC Completa **
+		// ********************************
+
+		$categorySetup = $this->categorySetupFactory->create(['setup' => $setup]);
+
+		$attributeSet = $this->attributeSetFactory->create();
+		$entityTypeId = $categorySetup->getEntityTypeId(\Magento\Catalog\Model\Product::ENTITY);
+		$attributeSetId = $categorySetup->getDefaultAttributeSetId($entityTypeId);
+		$data = [
+			'attribute_set_name' => 'PC Completa',
+			'entity_type_id' => $entityTypeId,
+			'sort_order' => 200,
+		];
+		$attributeSet->setData($data);
+		$attributeSet->validate();
+		$attributeSet->save();
+		$attributeSet->initFromSkeleton($attributeSetId);
+		$attributeSet->save();
+		
 		// ***********************
 		// ** Product Attribute **
 		// ***********************
@@ -71,7 +131,7 @@ class InstallData implements InstallDataInterface
 		// 		'user_defined' => false,
 		// 		'default' => '',
 		// 		'searchable' => false,
-		// 		'filterable' => false,
+		// 		'filterable' => true,
 		// 		'comparable' => false,
 		// 		'visible_on_front' => false,
 		// 		'used_in_product_listing' => true,
@@ -97,7 +157,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -115,7 +175,7 @@ class InstallData implements InstallDataInterface
 			\Magento\Catalog\Model\Product::ENTITY,
 			'tamano_pantalla',
 			[
-				'type' => 'number',
+				'type' => 'text',
 				'backend' => '',
 				'label' => 'Pantalla: Tamaño en pulgadas',
 				'input' => 'select',
@@ -127,7 +187,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -153,7 +213,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -179,7 +239,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -205,7 +265,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -231,7 +291,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -257,7 +317,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -283,7 +343,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -309,7 +369,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -335,7 +395,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -365,7 +425,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -391,7 +451,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -417,7 +477,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -447,7 +507,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -473,7 +533,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -499,7 +559,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -525,7 +585,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -555,7 +615,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -582,7 +642,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -612,7 +672,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -638,7 +698,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -668,7 +728,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -694,7 +754,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -720,7 +780,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -746,7 +806,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -772,7 +832,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -798,7 +858,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -824,7 +884,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -854,7 +914,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -880,7 +940,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -906,7 +966,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -932,7 +992,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -958,7 +1018,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -988,7 +1048,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -1014,7 +1074,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -1040,7 +1100,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -1066,7 +1126,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -1092,7 +1152,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -1118,7 +1178,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -1144,7 +1204,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -1170,7 +1230,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -1196,7 +1256,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -1222,7 +1282,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -1252,7 +1312,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -1282,7 +1342,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -1308,7 +1368,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -1334,7 +1394,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -1360,7 +1420,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -1390,7 +1450,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -1416,7 +1476,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -1442,7 +1502,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -1472,7 +1532,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -1502,7 +1562,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -1528,7 +1588,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -1554,7 +1614,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -1580,7 +1640,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,
@@ -1610,7 +1670,7 @@ class InstallData implements InstallDataInterface
 				'user_defined' => false,
 				'default' => '',
 				'searchable' => false,
-				'filterable' => false,
+				'filterable' => true,
 				'comparable' => false,
 				'visible_on_front' => true,
 				'used_in_product_listing' => true,

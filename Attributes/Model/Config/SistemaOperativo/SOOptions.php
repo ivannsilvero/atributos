@@ -10,10 +10,7 @@ class SOOptions extends AbstractSource
     public function getAllOptions()
     {
         $this->_options = [
-            ['label' =>__('Ubuntu'), 'value' => 'ubuntu'],
-            ['label' =>__('Windows 10'), 'value' => 'windows10'],
-            ['label' =>__('Kali Linux'), 'value' => 'kalilinux'],
-            ['label' =>__('Sin SO'), 'value' => 'noso'],
+            ['label' =>__('Windows 10'), 'value' => 'windows10']
         ];
 
         return $this->_options;
